@@ -8,7 +8,7 @@ variable "instance_type" {
 
 variable "subnet_id" {
   type = string
-  description = "subner id"
+  description = "subnet id"
 }
 
 variable "vpc_security_group_ids" {
