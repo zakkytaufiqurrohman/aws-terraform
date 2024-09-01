@@ -17,7 +17,9 @@ module "ec2-module" {
     subnet_id = module.vpc.subnet_public_1_id // jika sudah punya subnet ganti dengan id subnet yang sudah ada 
     vpc_security_group_ids = [module.vpc.aws_security_group_id] // jika sudah punya security group ganti gengan security group yang ada
     ami_name = "ami-0162fe8bfebb6ea16"
-    instance_type = "t2.micro"
+    instance_type = "t2.medium"
+    # spot adalah instance yang disediakan oleh aws dengan harga yang murah tapi resiko yang tinggi bisa di hapus sewaktu2 oleh aws
+    type_instance = "spot" // jika tidak spot ganti dengan normal
 }
 
 # output "ip-public" {

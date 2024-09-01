@@ -19,6 +19,9 @@ variable "vpc_security_group_ids" {
 variable "instance_name" {
   type = string
 }
+variable "type_instance" {
+  type = string
+}
 
 # variable "region" {
 #     type = string

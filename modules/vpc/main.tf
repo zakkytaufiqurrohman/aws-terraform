@@ -34,6 +34,7 @@ resource "aws_subnet" "vpc-terraform-public-2" {
   vpc_id     = aws_vpc.vpc-terraform.id
   availability_zone = var.availability_zone_2
   cidr_block = var.public_subnet_2_cidr
+  map_public_ip_on_launch = "true"
 
   tags = {
     Name = "${var.vpc_name}-public-2"
@@ -95,6 +96,13 @@ resource "aws_security_group" "vpc-terraform-sg" {
   ingress {
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
